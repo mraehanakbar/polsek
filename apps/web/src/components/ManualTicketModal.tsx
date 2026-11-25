@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import { createPortal } from "react-dom";
 import { Loader2, PhoneCall, Plus, X } from "lucide-react";
 import type { ManualTicketPayload, Priority } from "../lib/types";
 
@@ -100,7 +101,9 @@ export function ManualTicketModal({ open, busy, onClose, onCreate }: ManualTicke
     }
   }
 
-  return (
+  // Portal ke <body>: view induk memakai animasi transform yang membuat
+  // position: fixed terkurung di area halaman (modal terpotong).
+  return createPortal(
     <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="Tiket manual">
       <form className="modal-card manual-card" onSubmit={handleSubmit}>
         <header className="modal-head">
@@ -238,6 +241,7 @@ export function ManualTicketModal({ open, busy, onClose, onCreate }: ManualTicke
           </div>
         </footer>
       </form>
-    </div>
+    </div>,
+    document.body
   );
 }

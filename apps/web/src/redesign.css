@@ -570,3 +570,11 @@ body.wall .topbar { height: 68px; }
   .ink-item { padding: 5px 9px; }
   .view[data-view-panel="live"] .board { min-height: 480px; }
 }
+
+/* ============================ MODAL ============================ */
+.modal-backdrop { background: rgba(20, 20, 20, 0.45); backdrop-filter: blur(4px); }
+.modal-card { border: 0; border-radius: var(--radius); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25); }
+:root[data-theme="dark"] .modal-card { border: 1px solid var(--line); }
+.modal-head { padding: 18px 22px; }
+.modal-body { padding: 18px 22px; }
+.modal-foot { padding: 14px 22px; }
